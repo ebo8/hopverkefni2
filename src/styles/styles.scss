@@ -22,10 +22,6 @@ html { /* stylelint-disable-line */
   font-size: 16px;
 }
 
-img { /* stylelint-disable-line */
-  max-width: 100%;
-}
-
 .grid {
   padding-right: $gutter;
   padding-left: $gutter;
@@ -39,6 +35,8 @@ img { /* stylelint-disable-line */
 }
 
 .col {
+  display: flex;
+  flex-direction: row;
   padding-right: 0.5*$gutter;
   padding-left: 0.5*$gutter;
 }
@@ -55,9 +53,26 @@ img { /* stylelint-disable-line */
 }
 
 .box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   margin-top: $gutter;
   margin-bottom: $gutter;
   border: 1px solid #000;
+  background-color: $primaryLightGray;
+}
+
+.box--category {
+  padding: 0;
+}
+
+.box--heading {
+}
+
+.box--img { /* stylelint-disable-line */
+  max-width: 100%;
+  // flex-grow: 100;
 }
 
 // TODO import
