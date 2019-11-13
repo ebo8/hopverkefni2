@@ -2,9 +2,10 @@ import { empty } from './helpers';
 
 export default class List {
 
-  constructor(isLecturePage) {
+  constructor(isLecturePage, lectureName) {
     this.container = document.querySelector('.list');
     this.isLecturePage = isLecturePage;
+    this.lectureName = lectureName;
   }
 
   load() {
@@ -41,6 +42,7 @@ export default class List {
 
   displayLecture(data) {
     console.log("test");
+    console.log(this.lectureName);
     //TODO
   }
 
