@@ -36,8 +36,14 @@ export default class List {
       const boxContainer = this.createElement('div', 'col', 'none');
       boxContainer.classList.add('col-4', 'col-sm-12');
 
+      const lectureUrl = 'fyrirlestur.html?slug=' +data.lectures[i].slug;
+
       const box = this.createElement('div', 'box', 'none');
       boxContainer.appendChild(box);
+      box.style = "cursor: pointer;"
+      box.addEventListener('click', function() {
+        location.href = lectureUrl;
+      }, false);
 
       if (data.lectures[i].thumbnail != null) {
         const lectureThumbnail = this.createElement('img', 'box--img', 'none');
