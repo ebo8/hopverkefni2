@@ -12,7 +12,9 @@
 }
 
 html { /* stylelint-disable-line */
+  max-width: $max-width;
   box-sizing: border-box;
+  margin: 0 auto;
   overflow-x: hidden;
   overflow-y: scroll; // alltaf hafa y skrollbar
 
@@ -22,6 +24,40 @@ html { /* stylelint-disable-line */
 
 img { /* stylelint-disable-line */
   max-width: 100%;
+}
+
+.grid {
+  padding-right: $gutter;
+  padding-left: $gutter;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -0.5*$gutter;
+  margin-left: -0.5*$gutter;
+}
+
+.col {
+  padding-right: 0.5*$gutter;
+  padding-left: 0.5*$gutter;
+}
+
+.col-sm-12 {
+  width: 100%;
+}
+
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (min-width: 501px) {
+  .col-4 {
+    width: 33.33%;
+  }
+}
+
+.box {
+  margin-top: $gutter;
+  margin-bottom: $gutter;
+  border: 1px solid #000;
 }
 
 // TODO import
