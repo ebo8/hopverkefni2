@@ -25,7 +25,9 @@ html { /* stylelint-disable-line */
 .header {
   width: 100vw;
   top: 0;
+  bottom: 0;
   left: 0;
+  right:0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,11 +36,14 @@ html { /* stylelint-disable-line */
 .header__p {
   font-size: $gutter;
   padding-top: $gutter*6;
+  font-family: $font-header;
 }
 
 .header__header {
   font-size: $gutter*2;
   padding-bottom: $gutter*7;
+  font-family: $font-header;
+  font-weight: bold;
 }
 
 .grid {
@@ -89,13 +94,20 @@ html { /* stylelint-disable-line */
 
 .box--category {
   padding: 0;
+  text-transform: uppercase;
+  padding-top: $gutter*0.5;
 }
 
 .box--heading {
+  font-family: $font-header;
+  font-weight: bold;
+  font-size: $gutter*1.5;
+  padding-bottom: $gutter*0.5;
 }
 
 .box--img { /* stylelint-disable-line */
   max-width: 100%;
+  opacity: 0.6;
   // flex-grow: 100;
 }
 
@@ -117,7 +129,10 @@ header {
   width: 100vw;
   top: 0;
   bottom:0;
+  left: 0;
+  right:0;
   background: url(../img/header.jpg) no-repeat;
+  opacity: 0.6;
   background-position: 50% 10%;
 }
 
