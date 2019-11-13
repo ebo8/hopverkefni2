@@ -6,13 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
   let allLecturesObj;
 
   const url = new URL(window.location);
-  const param = new URLSearchParams(url.search);
-  console.log(page);
-  console.log(param);
-  console.log(url);
+  const slug = url.searchParams.get('slug');
 
   if (isLecturePage) {
-    console.log('hér');
+    const lecpage = new List();
+    lecpage.load();
 
   } else {
     const list = new List();
