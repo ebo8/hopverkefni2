@@ -11,8 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log(url);
 
   if (isLecturePage) {
-    const list = new List(isLecturePage);
-    list.load();
 
   } else {
     const list = new List(isLecturePage);
