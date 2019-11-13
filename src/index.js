@@ -8,11 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const slug = url.searchParams.get('slug');
 
   if (isLecturePage) {
-<<<<<<< HEAD
-    const lecpage = new List();
-    lecpage.load();
-=======
->>>>>>> b02896292bb3bf07fc784413c874696c618a6833
+    const list = new List(isLecturePage);
+    console.log(list.container);
+    list.fetchData();
 
   } else {
     const list = new List(isLecturePage);

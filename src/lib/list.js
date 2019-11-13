@@ -24,6 +24,7 @@ export default class List {
       .then((data) => {
         if (this.isLecturePage) {
           console.log("test");
+          console.log(data);
           this.displayLecture(data);
         } else {
             this.display(data);
