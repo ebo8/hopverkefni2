@@ -1,11 +1,14 @@
 import { empty } from './helpers';
 
 export default class List {
-  constructor() {
+
+  constructor(isLecturePage) {
     this.container = document.querySelector('.list');
+    this.isLecturePage = isLecturePage;
   }
 
   load() {
+    console.log("test");
     empty(this.container);
     this.fetchData();
   }
@@ -19,7 +22,12 @@ export default class List {
         throw new Error('Villa');
       })
       .then((data) => {
-        this.display(data);
+        if (this.isLecturePage) {
+          console.log("test");
+          this.displayLecture(data);
+        } else {
+            this.display(data);
+        }
         // displayCompany(data.results);
       })
       .catch((error) => {
@@ -28,6 +36,11 @@ export default class List {
         /*  eslint no-console: ["error", { allow: ["warn", "error"] }] */
         console.error(error);
       });
+  }
+
+  displayLecture(data) {
+    console.log("test");
+    //TODO
   }
 
   display(data) {
