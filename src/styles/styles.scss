@@ -129,6 +129,12 @@ html { /* stylelint-disable-line */
   background-color: $primaryLightGreen;
 }
 
+.video {
+  margin: 0 auto;
+  width: 50vw;
+  height: 50vh;
+}
+
 header {
   width: 100vw;
   top: 0;

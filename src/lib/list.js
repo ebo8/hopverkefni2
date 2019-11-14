@@ -38,14 +38,46 @@ export default class List {
       });
   }
 
+  makeheader(header, text, image) {
+
+    const headerContainer = document.querySelector('header');
+    const div = this.createElement('div', 'header', 'none');
+    const headerp = this.createElement('p', 'header__p', text);
+    const headerh = this.createElement('h1', 'header__header', header);
+    div.appendChild(headerp);
+    div.appendChild(headerh);
+
+    const imgURL = "url(" + image + ")";
+    headerContainer.style.backgroundImage = imgURL;
+    headerContainer.appendChild(div);
+  }
+
+  makeYoutube(link) {
+    const main = document.querySelector('main');
+    const div = this.createElement('div', 'video', 'none');
+    const video = this.createElement('iframe', 'video', 'none');
+    video.src = link;
+    div.appendChild(video);
+    console.log(this);
+    main.appendChild(div);
+  }
+
   displayLecture(data) {
-    console.log("test");
     console.log(this.lectureName);
     console.log(data.lectures[0].content);
-    // for(let i = 0; i < data.lecture.length; i += 1) {
-    //   console.log(lecpage.[i])
-    // }
+
+    for(let i = 0; i < data.lectures.length; i += 1) {
+      if(data.lectures[i].slug === this.lectureName) {
+        this.makeheader(data.lectures[i].title, data.lectures[i].category, data.lectures[i].image);
+      if(data.lectures[i].content[i].type === 'youtube') {
+        this.makeYoutube(data.lectures[i].content[i].data);
+      }
+      }
+    }
   }
+
+
+
 
   display(data) {
     for (var i = 0; i < data.lectures.length; i += 1) {
