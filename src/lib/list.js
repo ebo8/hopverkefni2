@@ -49,7 +49,8 @@ export default class List {
 
   display(data) {
     for (var i = 0; i < data.lectures.length; i += 1) {
-      if (this.filter[data.lectures[i].category] === false) {
+      if (this.filter.filterEnabled === true &&
+          this.filter[data.lectures[i].category] === false) {
         continue;
       }
 
