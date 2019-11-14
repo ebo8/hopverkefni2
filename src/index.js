@@ -13,14 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
     lecpage.fetchData();
 
   } else {
-    const filter = new Filter(true, true, true);
+    const filter = new Filter(false, false, false);
     list = new List(isLecturePage, 'frontpage', filter);
     list.load();
-    setTimeout(() => {
-      list.filter.css = false;
-      list.filter.html = false;
-      list.filter.javascript = false;
-    }, 1000);
     initButtons();
   }
 
@@ -41,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         list.filter[btnFilterType] = false;
         e.target.classList.remove('button--enabled');
     }
+    list.filter.toggleFilterOnOff();
     list.load();
   }
 });
