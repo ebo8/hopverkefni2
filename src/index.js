@@ -7,15 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
   let list;
 
   if (isLecturePage) {
-<<<<<<< HEAD
-    const list = new List(isLecturePage, slug);
-    list.fetchData();
-=======
     const url = new URL(window.location);
     const slug = url.searchParams.get('slug');
     const lecpage = new List(isLecturePage, slug, nofilter);
     lecpage.fetchData();
->>>>>>> 51042d12b9faab599c5eba3332eb72735b1c7741
 
   } else {
     const filter = new Filter(true, true, true);
@@ -27,6 +22,22 @@ document.addEventListener('DOMContentLoaded', () => {
       list.filter.javascript = false;
     }, 1000);
     initButtons();
+    makeheader('Fyrirlestrar', 'Vefforitun', '../img/header.jpg');
+  }
+
+  function makeheader(header, text, image) {
+
+    const headerContainer = document.querySelector('header');
+    console.log(headerContainer);
+    const div = list.createElement('div', 'header', 'none');
+    const headerp = list.createElement('p', 'header__p', text);
+    const headerh = list.createElement('h1', 'header__header', header);
+    div.appendChild(headerp);
+    div.appendChild(headerh);
+
+    const imgURL = "url(" + image + ")";
+    headerContainer.style.backgroundImage = imgURL;
+    headerContainer.appendChild(div);
   }
 
   function initButtons() {

@@ -24,11 +24,6 @@ export default class List {
       })
       .then((data) => {
         if (this.isLecturePage) {
-<<<<<<< HEAD
-          console.log("test");
-          console.log(data);
-=======
->>>>>>> 51042d12b9faab599c5eba3332eb72735b1c7741
           this.displayLecture(data);
         } else {
             this.display(data);
@@ -47,7 +42,9 @@ export default class List {
     console.log("test");
     console.log(this.lectureName);
     console.log(data.lectures[0].content);
-    //TODO
+    // for(let i = 0; i < data.lecture.length; i += 1) {
+    //   console.log(lecpage.[i])
+    // }
   }
 
   display(data) {
@@ -55,6 +52,7 @@ export default class List {
       if (this.filter[data.lectures[i].category] === false) {
         continue;
       }
+
       const boxContainer = this.createElement('div', 'col', 'none');
       boxContainer.classList.add('col-4', 'col-sm-12');
 
