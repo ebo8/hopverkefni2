@@ -2,14 +2,14 @@ import { empty } from './helpers';
 
 export default class List {
 
-  constructor(isLecturePage, lectureName) {
+  constructor(isLecturePage, lectureName, filter) {
     this.container = document.querySelector('.list');
     this.isLecturePage = isLecturePage;
     this.lectureName = lectureName;
+    this.filter = filter;
   }
 
   load() {
-    console.log("test");
     empty(this.container);
     this.fetchData();
   }
@@ -24,8 +24,11 @@ export default class List {
       })
       .then((data) => {
         if (this.isLecturePage) {
+<<<<<<< HEAD
           console.log("test");
           console.log(data);
+=======
+>>>>>>> 51042d12b9faab599c5eba3332eb72735b1c7741
           this.displayLecture(data);
         } else {
             this.display(data);
@@ -48,8 +51,10 @@ export default class List {
   }
 
   display(data) {
-    // var drasl = JSON.parse(data);
     for (var i = 0; i < data.lectures.length; i += 1) {
+      if (this.filter[data.lectures[i].category] === false) {
+        continue;
+      }
       const boxContainer = this.createElement('div', 'col', 'none');
       boxContainer.classList.add('col-4', 'col-sm-12');
 
@@ -89,11 +94,3 @@ export default class List {
     return tempElement;
   }
 }
-//
-// <div class="col col-4 col-sm-12">
-//   <div class="box">
-//     <img class="box--img" src="img/thumb1.jpg" alt="">
-//     <div class="box--category">HTML</div>
-//     <div class="box--heading">Sagan</div>
-//   </div>
-// </div>
