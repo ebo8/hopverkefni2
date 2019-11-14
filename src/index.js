@@ -36,8 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnFilterType = e.target.innerText.toLowerCase();
     if (list.filter[btnFilterType] === false) {
       list.filter[btnFilterType] = true;
+      e.target.classList.add('button--enabled');
     } else {
         list.filter[btnFilterType] = false;
+        e.target.classList.remove('button--enabled');
     }
     list.load();
   }

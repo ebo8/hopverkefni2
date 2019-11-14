@@ -125,6 +125,10 @@ html { /* stylelint-disable-line */
   background-color: $primaryDarkGray;
 }
 
+.button--enabled {
+  background-color: $primaryLightGreen;
+}
+
 header {
   width: 100vw;
   top: 0;
