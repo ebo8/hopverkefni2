@@ -43,6 +43,7 @@ export default class List {
   displayLecture(data) {
     console.log("test");
     console.log(this.lectureName);
+    console.log(data.lectures[0].content);
     //TODO
   }
 

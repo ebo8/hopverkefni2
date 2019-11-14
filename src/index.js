@@ -8,14 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const slug = url.searchParams.get('slug');
 
   if (isLecturePage) {
-<<<<<<< HEAD
-    const list = new List(isLecturePage);
-    console.log(list.container);
+    const list = new List(isLecturePage, slug);
     list.fetchData();
-=======
-    const lecpage = new List(isLecturePage, slug);
-    lecpage.fetchData();
->>>>>>> 713a2958809ecf72c59a641b52579e29cfc98747
 
   } else {
     const list = new List(isLecturePage, 'frontpage');
