@@ -1,7 +1,6 @@
 import { empty } from './helpers';
 
 export default class List {
-
   constructor(isLecturePage, lectureName, filter) {
     this.container = document.querySelector('.list');
     this.isLecturePage = isLecturePage;
@@ -26,7 +25,7 @@ export default class List {
         if (this.isLecturePage) {
           this.displayLecture(data);
         } else {
-            this.display(data);
+          this.display(data);
         }
         // displayCompany(data.results);
       })
@@ -39,7 +38,6 @@ export default class List {
   }
 
   makeheader(header, text, image) {
-
     const headerContainer = document.querySelector('header');
     const div = this.createElement('div', 'header', 'none');
     const headerp = this.createElement('p', 'header__p', text);
@@ -47,7 +45,7 @@ export default class List {
     div.appendChild(headerp);
     div.appendChild(headerh);
 
-    const imgURL = "url(" + image + ")";
+    const imgURL = 'url(' + image + ')';
     headerContainer.style.backgroundImage = imgURL;
     headerContainer.appendChild(div);
   }
@@ -97,7 +95,7 @@ export default class List {
   makeList(data) {
     const main = document.querySelector('main');
     const list = this.createElement('ul', 'lectureList', 'none');
-    for(let i = 0; i < data.length; i += 1) {
+    for (let i = 0; i < data.length; i += 1) {
       const listElement = this.createElement('li', 'lectureList--li', data[i]);
       list.appendChild(listElement);
     }
@@ -111,26 +109,23 @@ export default class List {
   }
 
   displayLecture(data) {
-    console.log(this.lectureName);
-
-    for(let i = 0; i < data.lectures.length; i += 1) {
-      if(data.lectures[i].slug === this.lectureName) {
+    for (let i = 0; i < data.lectures.length; i += 1) {
+      if (data.lectures[i].slug === this.lectureName) {
         this.makeheader(data.lectures[i].title, data.lectures[i].category, data.lectures[i].image);
-        for(let j = 0; j < data.lectures.length; j += 1) {
-          console.log(data.lectures[i].content[j]);
-          if(data.lectures[i].content[j].type === 'youtube') {
+        for (let j = 0; j < data.lectures[i].content.length; j += 1) {
+          if (data.lectures[i].content[j].type === 'youtube') {
             this.makeYoutube(data.lectures[i].content[j].data);
-          }else if (data.lectures[i].content[j].type === 'text') {
+          } else if (data.lectures[i].content[j].type === 'text') {
             this.makeText(data.lectures[i].content[j].data);
-          }else if (data.lectures[i].content[j].type === 'image') {
+          } else if (data.lectures[i].content[j].type === 'image') {
             this.makeImage(data.lectures[i].content[j].data, data.lectures[i].content[j].caption);
-          }else if (data.lectures[i].content[j].type === 'quote') {
+          } else if (data.lectures[i].content[j].type === 'quote') {
             this.makeQuote(data.lectures[i].content[j].data, data.lectures[i].content[j].attribute);
-          }else if (data.lectures[i].content[j].type === 'heading') {
+          } else if (data.lectures[i].content[j].type === 'heading') {
             this.makelectureHeading(data.lectures[i].content[j].data);
-          }else if (data.lectures[i].content[j].type === 'list') {
+          } else if (data.lectures[i].content[j].type === 'list') {
             this.makeList(data.lectures[i].content[j].data);
-          }else if (data.lectures[i].content[j].type === 'code') {
+          } else if (data.lectures[i].content[j].type === 'code') {
             this.makeCode(data.lectures[i].content[j].data);
           }
         }
@@ -138,24 +133,21 @@ export default class List {
     }
   }
 
-
-
-
   display(data) {
-    for (var i = 0; i < data.lectures.length; i += 1) {
-      if (this.filter.filterEnabled === true &&
-          this.filter[data.lectures[i].category] === false) {
+    for (let i = 0; i < data.lectures.length; i += 1) {
+      if (this.filter.filterEnabled === true
+        && this.filter[data.lectures[i].category] === false) {
         continue;
       }
 
       const boxContainer = this.createElement('div', 'col', 'none');
       boxContainer.classList.add('col-4', 'col-sm-12');
 
-      const lectureUrl = 'fyrirlestur.html?slug=' +data.lectures[i].slug;
+      const lectureUrl = 'fyrirlestur.html?slug=' + data.lectures[i].slug;
 
       const box = this.createElement('div', 'box', 'none');
       boxContainer.appendChild(box);
-      box.style = "cursor: pointer;"
+      box.style = 'cursor: pointer;';
       box.addEventListener('click', function() {
         location.href = lectureUrl;
       }, false);
@@ -173,15 +165,13 @@ export default class List {
       box.appendChild(heading);
 
       this.container.appendChild(boxContainer);
-
     }
-    console.log(data);
   }
 
   createElement(type, className, text) {
     const tempElement = document.createElement(type);
     tempElement.classList.add(className);
-    if (text != 'none') {
+    if (text !== 'none') {
       tempElement.innerText = text;
     }
     return tempElement;

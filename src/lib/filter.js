@@ -1,5 +1,5 @@
 export default class Filter {
-  constructor (html, css, js) {
+  constructor(html, css, js) {
     this.html = html;
     this.css = css;
     this.javascript = js;
@@ -7,12 +7,12 @@ export default class Filter {
   }
 
   toggleFilterOnOff() {
-    if (this.html === false &&
-        this.css === false &&
-        this.javascript === false) {
-            this.filterEnabled = false;
-        } else {
-          this.filterEnabled = true;
-        }
+    if (this.html === false
+        && this.css === false
+        && this.javascript === false) {
+      this.filterEnabled = false;
+    } else {
+      this.filterEnabled = true;
+    }
   }
 }
