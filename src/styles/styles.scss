@@ -23,26 +23,26 @@ html { /* stylelint-disable-line */
 }
 
 .header {
-  width: 100vw;
   top: 0;
+  right: 0;
   bottom: 0;
   left: 0;
-  right:0;
   display: flex;
+  width: 100vw;
   flex-direction: column;
   align-items: center;
 }
 
 .header__p {
-  font-size: $gutter;
   padding-top: $gutter*6;
   font-family: $font-header;
+  font-size: $gutter;
 }
 
 .header__header {
-  font-size: $gutter*2;
   padding-bottom: $gutter*7;
   font-family: $font-header;
+  font-size: $gutter*2;
   font-weight: bold;
 }
 
@@ -60,9 +60,9 @@ html { /* stylelint-disable-line */
 
 .col {
   display: flex;
-  flex-direction: row;
   padding-right: 0.5*$gutter;
   padding-left: 0.5*$gutter;
+  flex-direction: row;
 }
 
 .col-sm-12 {
@@ -82,27 +82,27 @@ html { /* stylelint-disable-line */
 }
 
 .box {
-  width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  width: 100%;
   margin-top: $gutter;
   margin-bottom: $gutter;
-  border: 1px solid #000;
+  flex-direction: column;
+  justify-content: flex-end;
   background-color: $primaryLightGray;
+  border: 1px solid #000;
 }
 
 .box--category {
   padding: 0;
-  text-transform: uppercase;
   padding-top: $gutter*0.5;
+  text-transform: uppercase;
 }
 
 .box--heading {
-  font-family: $font-header;
-  font-weight: bold;
-  font-size: $gutter*1.5;
   padding-bottom: $gutter*0.5;
+  font-family: $font-header;
+  font-size: $gutter*1.5;
+  font-weight: bold;
 }
 
 .box--img { /* stylelint-disable-line */
@@ -130,9 +130,9 @@ html { /* stylelint-disable-line */
 }
 
 .video {
-  margin: 0 auto;
   width: 50vw;
   height: 50vh;
+  margin: 0 auto;
 }
 
 .lectureText {
@@ -168,19 +168,19 @@ html { /* stylelint-disable-line */
 }
 
 .lectureCode {
-  
+
 }
 
 header {
-  width: 100vw;
   top: 0;
-  bottom:0;
+  right: 0;
+  bottom: 0;
   left: 0;
-  right:0;
-  opacity: 0.6;
-  background-position: 50% 10%;
+  width: 100vw;
   margin-left: calc(50% - 50vw);
-  background-size:cover;
+  background-position: 50% 10%;
+  background-size: cover;
+  opacity: 0.6;
 }
 
 // TODO import
