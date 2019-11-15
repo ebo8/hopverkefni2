@@ -131,6 +131,11 @@ export default class List {
         }
       }
     }
+    const main = document.querySelector('main');
+    const button = this.createElement('button', 'lectureButton', 'Klára fyrirlestur');
+    main.appendChild(button);
+    const backButton = this.createElement('button', 'backButton', 'Til baka');
+    main.appendChild(backButton);
   }
 
   display(data) {
