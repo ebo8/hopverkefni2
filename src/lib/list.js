@@ -52,17 +52,21 @@ export default class List {
 
   makeYoutube(link) {
     const main = document.querySelector('main');
-    const div = this.createElement('div', 'video', 'none');
+    const div = this.createElement('div', 'videoWrapper', 'none');
     const video = this.createElement('iframe', 'video', 'none');
     video.src = link;
+    div.classList.add('col-8');
     div.appendChild(video);
     main.appendChild(div);
   }
 
   makeText(text) {
     const main = document.querySelector('main');
+    const div = this.createElement('div', 'textWrapper', 'none');
     const textValue = this.createElement('p', 'lectureText', text);
-    main.appendChild(textValue);
+    div.classList.add('col-8');
+    div.appendChild(textValue);
+    main.appendChild(div);
   }
 
   makeImage(image, caption) {
@@ -71,6 +75,7 @@ export default class List {
     const img = this.createElement('img', 'lectureImg', 'none');
     img.src = image;
     const imgcap = this.createElement('figcaption', 'lectureImg', caption);
+    figure.classList.add('col-8');
     figure.appendChild(img);
     figure.appendChild(imgcap);
     main.appendChild(figure);
@@ -81,6 +86,7 @@ export default class List {
     const quoteContainer = this.createElement('div', 'quote', 'none');
     const quoteText = this.createElement('p', 'quote--text', quote);
     const cite = this.createElement('q', 'quote--cite', attribute);
+    quoteContainer.classList.add('col-8');
     quoteContainer.appendChild(quoteText);
     quoteContainer.appendChild(cite);
     main.appendChild(quoteContainer);
@@ -89,12 +95,14 @@ export default class List {
   makelectureHeading(text) {
     const main = document.querySelector('main');
     const heading = this.createElement('h2', 'lectureh2', text);
+    heading.classList.add('col-8');
     main.appendChild(heading);
   }
 
   makeList(data) {
     const main = document.querySelector('main');
     const list = this.createElement('ul', 'lectureList', 'none');
+    list.classList.add('col-8');
     for (let i = 0; i < data.length; i += 1) {
       const listElement = this.createElement('li', 'lectureList--li', data[i]);
       list.appendChild(listElement);
@@ -104,8 +112,11 @@ export default class List {
 
   makeCode(data) {
     const main = document.querySelector('main');
+    const codeContainer = this.createElement('pre', 'CodeContainer', 'none')
     const code = this.createElement('code', 'lectureCode', data);
-    main.appendChild(code);
+    codeContainer.classList.add('col-8');
+    codeContainer.appendChild(code);
+    main.appendChild(codeContainer);
   }
 
   displayLecture(data) {
@@ -132,10 +143,13 @@ export default class List {
       }
     }
     const main = document.querySelector('main');
+    const buttonContainer = this.createElement('div', 'buttonContainer', 'none');
     const button = this.createElement('button', 'lectureButton', 'Klára fyrirlestur');
-    main.appendChild(button);
+    //main.appendChild(button);
     const backButton = this.createElement('button', 'backButton', 'Til baka');
-    main.appendChild(backButton);
+    buttonContainer.appendChild(button);
+    buttonContainer.appendChild(backButton);
+    main.appendChild(buttonContainer);
   }
 
   display(data) {
