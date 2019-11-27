@@ -245,4 +245,33 @@ header {
   opacity: 0.6;
 }
 
+.box--checked {
+  color: #2d2;
+  flex-direction: column;
+  font-size: 48px;
+  align-self: flex-end;
+  padding-bottom: 10px;
+}
+
+.box--heading--container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 10px 0 10px;
+}
+
+.box--heading--category {
+  display: flex;
+  flex-direction: column; 
+}
+
+.button--enabled:hover {
+  background-color: #1a1;
+}
+
+.box:hover {
+  background-color: #aaa;
+}
+
+
 // TODO import

@@ -144,12 +144,32 @@ export default class List {
     }
     const main = document.querySelector('main');
     const buttonContainer = this.createElement('div', 'buttonContainer', 'none');
+    const slugger = window.location.search;
+    const done = localStorage.getItem(slugger);
     const button = this.createElement('button', 'lectureButton', 'Klára fyrirlestur');
-    //main.appendChild(button);
+    if (done === 'yes') {
+      button.textContent = '✓ Fyrirlestur kláraður';
+      button.classList.add('lectureButton--checked');
+    }
     const backButton = this.createElement('button', 'backButton', 'Til baka');
     buttonContainer.appendChild(button);
     buttonContainer.appendChild(backButton);
     main.appendChild(buttonContainer);
+    button.addEventListener('click', function() {
+      console.log(window.location.search);
+      event.target.classList.toggle('lectureButton--checked');
+      if (event.target.textContent === 'Klára fyrirlestur') {
+        event.target.textContent = '✓ Fyrirlestur kláraður'; 
+      localStorage.setItem(slugger, 'yes');
+      }
+      else {
+        event.target.textContent = 'Klára fyrirlestur';
+        localStorage.setItem(slugger, 'no');
+      }
+      });
+      backButton.addEventListener('click', function() { 
+        location.href = 'index.html?slug=';
+      })
   }
 
   display(data) {
@@ -163,7 +183,7 @@ export default class List {
       boxContainer.classList.add('col-4', 'col-sm-12');
 
       const lectureUrl = 'fyrirlestur.html?slug=' + data.lectures[i].slug;
-
+      const slugger = localStorage.getItem('?slug=' + data.lectures[i].slug);
       const box = this.createElement('div', 'box', 'none');
       boxContainer.appendChild(box);
       box.style = 'cursor: pointer;';
@@ -178,15 +198,27 @@ export default class List {
       }
 
       const category = this.createElement('div', 'box--category', data.lectures[i].category);
-      box.appendChild(category);
-
+      //box.appendChild(category);
+      //test
+      const container = this.createElement('div', 'box--heading--container', 'none');
+      const lesserContainer = this.createElement('div', 'box--heading--category', 'none');
       const heading = this.createElement('div', 'box--heading', data.lectures[i].title);
-      box.appendChild(heading);
+      lesserContainer.appendChild(category);
+      lesserContainer.appendChild(heading);
+      //box.appendChild(heading);
+      container.appendChild(lesserContainer);
+      box.appendChild(container);
+
+      if(slugger === 'yes') {
+        const sluggo = this.createElement('div', 'box--checked', '✓');
+        container.appendChild(sluggo);
+      }
 
       this.container.appendChild(boxContainer);
     }
+    
   }
-
+  
   createElement(type, className, text) {
     const tempElement = document.createElement(type);
     tempElement.classList.add(className);
@@ -194,5 +226,5 @@ export default class List {
       tempElement.innerText = text;
     }
     return tempElement;
-  }
+  } 
 }
