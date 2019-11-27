@@ -45,7 +45,7 @@ export default class List {
     div.appendChild(headerp);
     div.appendChild(headerh);
 
-    const imgURL = 'url(' + image + ')';
+    const imgURL = `url(${image})`;
     headerContainer.style.backgroundImage = imgURL;
     headerContainer.appendChild(div);
   }
@@ -112,7 +112,7 @@ export default class List {
 
   makeCode(data) {
     const main = document.querySelector('main');
-    const codeContainer = this.createElement('pre', 'CodeContainer', 'none')
+    const codeContainer = this.createElement('pre', 'CodeContainer', 'none');
     const code = this.createElement('code', 'lectureCode', data);
     codeContainer.classList.add('col-8');
     codeContainer.appendChild(code);
@@ -155,40 +155,39 @@ export default class List {
     buttonContainer.appendChild(button);
     buttonContainer.appendChild(backButton);
     main.appendChild(buttonContainer);
-    button.addEventListener('click', function() {
-      console.log(window.location.search);
-      event.target.classList.toggle('lectureButton--checked');
-      if (event.target.textContent === 'Klára fyrirlestur') {
-        event.target.textContent = '✓ Fyrirlestur kláraður'; 
-      localStorage.setItem(slugger, 'yes');
-      }
-      else {
-        event.target.textContent = 'Klára fyrirlestur';
+    button.addEventListener('click', (e) => {
+      e.target.classList.toggle('lectureButton--checked');
+      if (e.target.textContent === 'Klára fyrirlestur') {
+        e.target.textContent = '✓ Fyrirlestur kláraður';
+        localStorage.setItem(slugger, 'yes');
+      } else {
+        e.target.textContent = 'Klára fyrirlestur';
         localStorage.setItem(slugger, 'no');
       }
-      });
-      backButton.addEventListener('click', function() { 
-        location.href = 'index.html?slug=';
-      })
+    });
+    backButton.addEventListener('click', () => {
+      window.location.href = 'index.html?slug=';
+    });
   }
 
   display(data) {
     for (let i = 0; i < data.lectures.length; i += 1) {
       if (this.filter.filterEnabled === true
         && this.filter[data.lectures[i].category] === false) {
+        // eslint-disable-next-line no-continue
         continue;
       }
 
       const boxContainer = this.createElement('div', 'col', 'none');
       boxContainer.classList.add('col-4', 'col-sm-12');
 
-      const lectureUrl = 'fyrirlestur.html?slug=' + data.lectures[i].slug;
-      const slugger = localStorage.getItem('?slug=' + data.lectures[i].slug);
+      const lectureUrl = `fyrirlestur.html?slug=${data.lectures[i].slug}`;
+      const slugger = localStorage.getItem(`?slug=${data.lectures[i].slug}`);
       const box = this.createElement('div', 'box', 'none');
       boxContainer.appendChild(box);
       box.style = 'cursor: pointer;';
-      box.addEventListener('click', function() {
-        location.href = lectureUrl;
+      box.addEventListener('click', () => {
+        window.location.href = lectureUrl;
       }, false);
 
       if (data.lectures[i].thumbnail != null) {
@@ -198,27 +197,23 @@ export default class List {
       }
 
       const category = this.createElement('div', 'box--category', data.lectures[i].category);
-      //box.appendChild(category);
-      //test
       const container = this.createElement('div', 'box--heading--container', 'none');
       const lesserContainer = this.createElement('div', 'box--heading--category', 'none');
       const heading = this.createElement('div', 'box--heading', data.lectures[i].title);
       lesserContainer.appendChild(category);
       lesserContainer.appendChild(heading);
-      //box.appendChild(heading);
       container.appendChild(lesserContainer);
       box.appendChild(container);
 
-      if(slugger === 'yes') {
+      if (slugger === 'yes') {
         const sluggo = this.createElement('div', 'box--checked', '✓');
         container.appendChild(sluggo);
       }
 
       this.container.appendChild(boxContainer);
     }
-    
   }
-  
+
   createElement(type, className, text) {
     const tempElement = document.createElement(type);
     tempElement.classList.add(className);
@@ -226,5 +221,5 @@ export default class List {
       tempElement.innerText = text;
     }
     return tempElement;
-  } 
+  }
 }
