@@ -31,7 +31,7 @@ Mappan src inniheldur tvær aðrar möppur, lib og styles, og einnig index.js. M
 Skráin filter.js inniheldur klasann filter. Skráin helpers.js inniheldur eitt hjálparfall. Skráin list.js inniheldur klasann list og þar er einnig náð í gögn frá skránni lectures.json. Allar þessar skrár og index.js eru aðalskrárnar fyrir JavaScript kóðann.
 Mappan styles inniheldur config.scss og styles.scss. Config.scss inniheldur fasta fyrir liti, vídd, gutter og leturgerð. Styles.scss er aðalskráin fyrir CSS.
 
-Þegar npm run babel er keyrt þá er skráin dist búin til. Hún inniheldur bundle.js, bundle.js.map og styles.css. Babel er notað til að transpila kóða.
+Þegar npm run babel er keyrt þá er mappan dist búin til. Hún inniheldur bundle.js, bundle.js.map og styles.css. Babel er notað til að transpila kóða.
 
 Þegar npm run dev er keyrt þá keyrist sass og browser-sync.
 
