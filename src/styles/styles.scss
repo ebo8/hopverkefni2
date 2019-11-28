@@ -109,13 +109,11 @@ html { /* stylelint-disable-line */
 .box--img { /* stylelint-disable-line */
   max-width: 100%;
   opacity: 0.6;
-  // flex-grow: 100;
 }
 
 .button {
   padding: 0.5*$gutter $gutter 0.5*$gutter $gutter;
   margin: $gutter;
-  // font-family: "Open Sans";
   background-color: $primaryLightGray;
   border: 0;
   border-radius: 8px;
@@ -139,52 +137,54 @@ html { /* stylelint-disable-line */
 .video {
   flex-grow: 1;
   height: 45vh;
-  margin: 2*$gutter $gutter $gutter $gutter; //40px 20px 20px 20px; 
+  margin: 2*$gutter $gutter $gutter $gutter;
 }
 
 .lectureText {
-  margin: $gutter;//20px;
-  line-height: 1.5*$gutter;//30px;
+  margin: $gutter;
+  line-height: 1.5*$gutter;
 }
 
 .lectureText br {
-  content: '';
-  margin-bottom: $gutter; //20px;
   display: block;
+  margin-bottom: $gutter;
   font-size: 24%;
+  content: "";
 }
 
 .lectureImg {
   display: flex;
-  flex-direction: column;
+  margin-top: $gutter;
+  margin-bottom: $gutter;
   font-style: italic;
-  margin-top: $gutter; //20px;
-  margin-bottom: $gutter; //20px;
+  flex-direction: column;
 }
 
-.lectureImg:first-child,.lectureImg:last-child {
-  margin: 0 $gutter 0 $gutter; //0 20px 0 20px;
+.lectureImg:first-child,
+.lectureImg:last-child {
+  margin: 0 $gutter 0 $gutter;
 }
 
 .quote {
-  background-color: #ccc;
   display: flex;
+  padding: $gutter;
+  margin-top: $gutter;
+  margin-bottom: $gutter;
   flex-direction: column;
-  padding: $gutter;//20px;
-  margin-top: $gutter;//20px;
-  margin-bottom: $gutter;//20px;
+  background-color: #ccc;
 }
 
 .quote--text {
-  margin-bottom: $gutter;//20px;
+  margin-bottom: $gutter;
 }
 
 .quote--cite {
   font-style: italic;
 }
 
-.quote--cite:before,.quote--cite:after {
-  content:'';
+.quote--cite::before,
+.quote--cite::after {
+  content: "";
 }
 
 .lectureh2 {
@@ -194,50 +194,45 @@ html { /* stylelint-disable-line */
 }
 
 .lectureList {
-  margin-top: $gutter; //20px;
   display: flex;
+  margin-top: $gutter;
   flex-direction: column;
 }
 
 .lectureList--li {
-  margin-left: $gutter; //20px;
-  margin-bottom: $gutter; //20px;
+  margin-bottom: $gutter;
+  margin-left: $gutter;
 }
 
 .lectureCode {
-  padding: 20px;
   display: block;
+  padding: 20px;
 }
 
 .buttonContainer {
   display: flex;
-  flex-direction: column;
+  margin-top: 2*$gutter;
   font-size: 16px;
-  margin-top: 2*$gutter; //40px;
-  
+  flex-direction: column;
 }
 
 .lectureButton {
-  margin: $gutter auto $gutter auto; //20px auto 20px auto;
-  font-size: 1em;
+  margin: $gutter auto $gutter auto;
   font-family: "Roboto Mono", "Courier New", monospace;
+  font-size: 1em;
   background-color: transparent;
   border: 0;
 }
 
 .backButton {
-  margin: $gutter auto 3*$gutter auto; //20px auto 60px auto;
+  margin: $gutter auto 3*$gutter auto;
+  font-family: "Roboto Mono", "Courier New", monospace;
   font-size: 1em;
-  font-family: "Roboto Mono", "Courier New", monospace;   
   background-color: transparent;
   border: 0;
 }
 
 header {
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
   width: 100vw;
   margin-left: calc(50% - 50vw);
   background-position: 50% 10%;
@@ -246,23 +241,23 @@ header {
 }
 
 .box--checked {
+  padding-bottom: 0.5*$gutter;
+  font-size: 48px;
   color: #2d2;
   flex-direction: column;
-  font-size: 48px;
   align-self: flex-end;
-  padding-bottom: 0.5*$gutter//10px;
 }
 
 .box--heading--container {
   display: flex;
+  padding: 0 0.5*$gutter 0 0.5*$gutter;
   flex-direction: row;
   justify-content: space-between;
-  padding: 0 0.5*$gutter 0 0.5*$gutter; //0 10px 0 10px;
 }
 
 .box--heading--category {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 .button--enabled:hover {
@@ -275,8 +270,5 @@ header {
 
 .lectureButton--checked {
   margin-top: 16px;
-  color: #2d2; 
+  color: #2d2;
 }
-
-
-// TODO import
