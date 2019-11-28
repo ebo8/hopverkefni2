@@ -19,7 +19,7 @@ Til að linta verkefnið:
 npm run test
 ```
 
-##Lýsing á verkefninu:
+## Lýsing á verkefninu:
 
 Verkefnið var unnið eftir forskrift, sjá https://github.com/Wolfcoder13/vef1-2019-h2.
 
@@ -37,7 +37,7 @@ Mappan styles inniheldur config.scss og styles.scss. Config.scss inniheldur fast
 
 Rollup er notað til þess að pakka saman JavaScript kóða.
 
-##Verkefnið gerðu:
+## Verkefnið gerðu:
 
 Ársól Drífa Ólafsdóttir ado12@hi.is
 
