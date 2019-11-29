@@ -16,7 +16,7 @@ html { /* stylelint-disable-line */
   box-sizing: border-box;
   margin: 0 auto;
   overflow-x: hidden;
-  overflow-y: scroll; // alltaf hafa y skrollbar
+  overflow-y: scroll;
 
   font-family: $font-main;
   font-size: 16px;
@@ -107,7 +107,6 @@ html { /* stylelint-disable-line */
 
 .box--img { /* stylelint-disable-line */
   max-width: 100%;
-  opacity: 0.6;
 }
 
 .button {
@@ -190,7 +189,7 @@ html { /* stylelint-disable-line */
 }
 
 .lectureh2 {
-  padding: $gutter $gutter 0 $gutter; //20px 20px 0 20px;
+  padding: $gutter $gutter 0 $gutter; 
   font-family: "Roboto Mono", "Courier New", monospace;
   font-size: 32px;
 }
