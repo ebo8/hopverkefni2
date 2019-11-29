@@ -1,4 +1,4 @@
-# Hópverkefni 2 vefforitun 1 haust 2019
+# Hópverkefni 2 vefforritun 1 haust 2019
 
 ## Uppsetning á verkefni
 

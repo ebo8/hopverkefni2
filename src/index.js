@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     list = new List(isLecturePage, 'frontpage', filter);
     list.load();
     initButtons();
-    list.makeheader('Fyrirlestrar', 'Vefforitun', '../img/header.jpg');
+    list.makeheader('Fyrirlestrar', 'Vefforritun', '../img/header.jpg');
   }
 
 
