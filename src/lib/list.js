@@ -36,6 +36,7 @@ export default class List {
 
   makeheader(header, text, image) {
     const headerContainer = document.querySelector('header');
+    headerContainer.classList.add('headerEl');
     const div = this.createElement('div', 'header', 'none');
     const headerp = this.createElement('p', 'header__p', text);
     const headerh = this.createElement('h1', 'header__header', header);
@@ -64,6 +65,10 @@ export default class List {
     div.classList.add('col-8');
     div.appendChild(textValue);
     main.appendChild(div);
+    const br = textValue.querySelectorAll('br');
+    for (let i = 0; i < br.length; i += 1) {
+      br[i].classList.add('lectureTextBr');
+    }
   }
 
   makeImage(image, caption) {

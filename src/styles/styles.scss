@@ -113,6 +113,9 @@ html { /* stylelint-disable-line */
 .button {
   padding: 0.5*$gutter $gutter 0.5*$gutter $gutter;
   margin: $gutter;
+  font-family: $font-header;
+  font-size: $gutter;
+  font-weight: bold;
   background-color: $primaryLightGray;
   border: 0;
   border-radius: 8px;
@@ -144,7 +147,7 @@ html { /* stylelint-disable-line */
   line-height: 1.5*$gutter;
 }
 
-.lectureText br {
+.lectureTextBr {
   display: block;
   margin-bottom: $gutter;
   font-size: 24%;
@@ -231,8 +234,9 @@ html { /* stylelint-disable-line */
   border: 0;
 }
 
-header {
+.headerEl {
   width: 100vw;
+  margin-bottom: $gutter;
   margin-left: calc(50% - 50vw);
   background-position: 50% 10%;
   background-size: cover;
