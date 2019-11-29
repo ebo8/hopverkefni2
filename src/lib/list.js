@@ -27,11 +27,8 @@ export default class List {
         } else {
           this.display(data);
         }
-        // displayCompany(data.results);
       })
       .catch((error) => {
-        // removeLoadingContainer();
-        // displayError('Villa við að sækja gögn');
         /*  eslint no-console: ["error", { allow: ["warn", "error"] }] */
         console.error(error);
       });
