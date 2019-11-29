@@ -171,43 +171,42 @@ export default class List {
     for (let i = 0; i < data.lectures.length; i += 1) {
       if (this.filter.filterEnabled === true
         && this.filter[data.lectures[i].category] === false) {
-        // eslint-disable-next-line no-continue
-        continue;
+        // Do nothing
+      } else {
+        const boxContainer = this.createElement('div', 'col', 'none');
+        boxContainer.classList.add('col-4', 'col-sm-12');
+
+        const lectureUrl = `fyrirlestur.html?slug=${data.lectures[i].slug}`;
+        const slugger = localStorage.getItem(`?slug=${data.lectures[i].slug}`);
+        const box = this.createElement('div', 'box', 'none');
+        boxContainer.appendChild(box);
+        box.style = 'cursor: pointer;';
+        box.addEventListener('click', () => {
+          window.location.href = lectureUrl;
+        }, false);
+
+        if (data.lectures[i].thumbnail != null) {
+          const lectureThumbnail = this.createElement('img', 'box--img', 'none');
+          lectureThumbnail.src = data.lectures[i].thumbnail;
+          box.appendChild(lectureThumbnail);
+        }
+
+        const category = this.createElement('div', 'box--category', data.lectures[i].category);
+        const container = this.createElement('div', 'box--heading--container', 'none');
+        const lesserContainer = this.createElement('div', 'box--heading--category', 'none');
+        const heading = this.createElement('div', 'box--heading', data.lectures[i].title);
+        lesserContainer.appendChild(category);
+        lesserContainer.appendChild(heading);
+        container.appendChild(lesserContainer);
+        box.appendChild(container);
+
+        if (slugger === 'yes') {
+          const sluggo = this.createElement('div', 'box--checked', '✓');
+          container.appendChild(sluggo);
+        }
+
+        this.container.appendChild(boxContainer);
       }
-
-      const boxContainer = this.createElement('div', 'col', 'none');
-      boxContainer.classList.add('col-4', 'col-sm-12');
-
-      const lectureUrl = `fyrirlestur.html?slug=${data.lectures[i].slug}`;
-      const slugger = localStorage.getItem(`?slug=${data.lectures[i].slug}`);
-      const box = this.createElement('div', 'box', 'none');
-      boxContainer.appendChild(box);
-      box.style = 'cursor: pointer;';
-      box.addEventListener('click', () => {
-        window.location.href = lectureUrl;
-      }, false);
-
-      if (data.lectures[i].thumbnail != null) {
-        const lectureThumbnail = this.createElement('img', 'box--img', 'none');
-        lectureThumbnail.src = data.lectures[i].thumbnail;
-        box.appendChild(lectureThumbnail);
-      }
-
-      const category = this.createElement('div', 'box--category', data.lectures[i].category);
-      const container = this.createElement('div', 'box--heading--container', 'none');
-      const lesserContainer = this.createElement('div', 'box--heading--category', 'none');
-      const heading = this.createElement('div', 'box--heading', data.lectures[i].title);
-      lesserContainer.appendChild(category);
-      lesserContainer.appendChild(heading);
-      container.appendChild(lesserContainer);
-      box.appendChild(container);
-
-      if (slugger === 'yes') {
-        const sluggo = this.createElement('div', 'box--checked', '✓');
-        container.appendChild(sluggo);
-      }
-
-      this.container.appendChild(boxContainer);
     }
   }
 
